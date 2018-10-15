@@ -2,7 +2,7 @@
 
 /**
  * Function to query information based on 
- * a parameter: in this case, location.
+ * a multiple user input parameters
  *
  */
 
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
     			$sql[] = " first_name > '" . $_POST['fname'] . "' ";
 		}
 		else if ($_POST['selected_text_fna'] == "Less Than") {
-    			$sql[] = " first_name <E '" . $_POST['fname'] . "' ";
+    			$sql[] = " first_name < '" . $_POST['fname'] . "' ";
 		}
 //LAST NAME
 		if ($_POST['selected_text_lna'] == "Equal") {
@@ -42,10 +42,10 @@ if (isset($_POST['submit'])) {
 		}
 //DOB
 		if ($_POST['selected_text_dob'] == "Equal") {
-    			$sql[] = " DOB = '" . $_POST['dob'] . "' ";
+    			$sql[] = " DOB LIKE '%" . $_POST['dob'] . "%' ";
 		}
 		else if ($_POST['selected_text_dob'] == "Not Equal") {
-    			$sql[] = " DOB != '" . $_POST['dob'] . "' ";
+    			$sql[] = " DOB NOT LIKE '%" . $_POST['dob'] . "%' ";
 		}
 		else if ($_POST['selected_text_dob'] == "Greater Than") {
     			$sql[] = " DOB > '" . $_POST['dob'] . "' ";
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 		}
 //STATE
 		if ($_POST['selected_text_sta'] == "Equal") {
-    			$sql[] = " state = '%" . $_POST['state'] . "%' ";
+    			$sql[] = " state LIKE '%" . $_POST['state'] . "%' ";
 		}
 		else if ($_POST['selected_text_sta'] == "Not Equal") {
     			$sql[] = " state NOT LIKE '%" . $_POST['state'] . "%' ";
